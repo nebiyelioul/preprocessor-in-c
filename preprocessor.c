@@ -20,20 +20,18 @@ int main()
 		printf("Cannot open file %s \n", filename); 
 		exit(0); 
 	} 
-    int temp=0;
-    while(filename[temp]!='.' && filename[temp+1]!='c'){
-    	output[temp]=filename[temp];
-    	printf("%c\n",output[temp] );
-    	temp++;
-    	output[temp]='\0';
-    	if(filename[temp]=='.' && filename[temp+1]=='c')
-    	{
-    		strcat(output,ttt);
-    	}
-    }
-    
-    
-    
+	    int temp=0;
+	    while(filename[temp]!='.' && filename[temp+1]!='c'){
+			output[temp]=filename[temp];
+			printf("%c\n",output[temp] );
+			temp++;
+			output[temp]='\0';
+			if(filename[temp]=='.' && filename[temp+1]=='c')
+			{
+				strcat(output,ttt);
+			}
+	    }
+	
 	//Open another file for writing 
 	fptr2 = fopen(output, "w"); 
 	if (fptr2 == NULL) 
@@ -44,7 +42,7 @@ int main()
 	} 
 
 	// Read contents from file 	
-        c = fgetc(fptr1); 
+    c = fgetc(fptr1); 
 	while (c != EOF) 
 	{ 
         if(c=='#'){
@@ -53,8 +51,9 @@ int main()
 	              c=getc(fptr1); 
 	              inc2[i]=c;
 	               
-	           }
-	           inc2[7]='\0';
+		   }
+		    
+			inc2[7]='\0';
 	        int s = strcmp(inc,inc2);
 	        if(s==0)
 	        {
@@ -63,30 +62,28 @@ int main()
 	           int f=0,x=0;
 	           c=fgetc(fptr1);
 	           if(c=='<' || c=='"'){
-	           	
 	              c=fgetc(fptr1);
 	              while(c!='>' && c!='"'){
                       x++;
-	                  c=fgetc(fptr1);
-	                  
+	                  c=fgetc(fptr1);          
 			        }
+				   
                      fseek(fptr1,-(x+1),SEEK_CUR);
 			         c=fgetc(fptr1);
 			         char lib[x+1]; 
-				         for(int i=0;i<sizeof(lib)-2;i++){
-                            if(c!='>'){
-                            	lib[i]=c;
-                            	c=fgetc(fptr1);
-                                 }
-                             }
-                        char tt[2]={'h','\0'};
-                        strcat(lib,tt);
-				        c=fgetc(fptr1);
-				        f++;check++;
-				        
-			        
-			        t=0;
-			        c='\0';
+					 for(int i=0;i<sizeof(lib)-2;i++){
+						if(c!='>'){
+							lib[i]=c;
+							c=fgetc(fptr1);
+							 }
+					 }
+					
+			    char tt[2]={'h','\0'};
+				strcat(lib,tt);
+				c=fgetc(fptr1);
+				f++;check++;
+				t=0;
+				c='\0';
 	             char path[]="/usr/include/";
 	             fptr3 = fopen(strcat(path,lib),"r");
 	             if(!fptr3){
