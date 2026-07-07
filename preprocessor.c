@@ -21,6 +21,7 @@ int main()
 		exit(0); 
 	} 
 	    int temp=0;
+	    // Build the output filename by copying the input name up to ".c" and appending ".i"
 	    while(filename[temp]!='.' && filename[temp+1]!='c'){
 			output[temp]=filename[temp];
 			printf("%c\n",output[temp] );
