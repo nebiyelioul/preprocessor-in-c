@@ -46,6 +46,7 @@ int main()
 	while (c != EOF) 
 	{ 
         if(c=='#'){
+	        // Check if this '#' directive is "include"; if so, inline the header's contents below
 	        memset(inc2,0,8);
 	        for(int i=0;i<=6;i++){
 	              c=getc(fptr1); 
